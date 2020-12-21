@@ -9,7 +9,7 @@ import {getImagesUrl} from './GalleryScreen';
 
 function HomeScreen({navigation}, props) {
   let state = store.getState();
-  console.log(state);
+  //console.log(state);
   //console.log(store.homeScreen.userName)
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

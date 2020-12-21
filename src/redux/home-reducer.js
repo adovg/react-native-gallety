@@ -5,7 +5,7 @@ let initialState = {
     // userData: [
     //     {userName: 'John Doe!'}
     // ]
-    userName: 'John Doe!'
+    userName: 'John Doe',
 };
 
 const homeReducer = (state = initialState, action) => {

@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import GalleryScreen from './src/GalleryScreen';
 import HomeScreen from './src/HomeScreen';
 import store from "./src/redux/redux-store";
-import {createStore} from 'react-redux';
+//import {createStore} from 'react-redux';
 import {Provider} from 'react-redux';
 
 
