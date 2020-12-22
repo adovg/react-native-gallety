@@ -29,22 +29,14 @@ const galleryReducer = (state = initialState, action) => {
             //stateCopy.newPostData = '';
             //return stateCopy;
         }
-        // case UPDATE_NEW_POST_TEXT: {
-        //    return { 
-        //         ...state, 
-        //         newPostData: action.newText
-        //     };
-        //     // state.newPostData = action.newText;
-        //     // stateCopy.newPostData = action.newText;
-        //     // return stateCopy;
-        // }
+ 
         default:
             return state;
     };
     //return state;
 };
 
-export const addFotoActionCreator = () => ({ type: ADD_FOTO });
+export const addFotoActionCreator = () => ({ type: ADD_FOTO }); // action creator 
 
 // export const updateNewPostTextActionCreator = (text) => ({
 //     type: UPDATE_NEW_POST_TEXT,

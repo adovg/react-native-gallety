@@ -9,6 +9,7 @@ import {getImagesUrl} from './GalleryScreen';
 
 function HomeScreen({navigation}, props) {
   let state = store.getState();
+  state.galleryScreen.photosUrl = [];
   //console.log(state);
   //console.log(store.homeScreen.userName)
     return (
