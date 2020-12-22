@@ -2,11 +2,6 @@ const ADD_FOTO = 'ADD_FOTO';
 //const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
-    // galleryData: [
-    //     {
-    //     url: "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwzMjQ1NnwwfDF8YWxsfDJ8fHx8fHwyfA&ixlib=rb-1.2.1&q=80&w=400" 
-    //     }
-    // ]
     photosUrl: ["https://images.unsplash.com/photo-1608481337062-4093bf3ed404?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwzMjQ1NnwwfDF8YWxsfDJ8fHx8fHwyfA&ixlib=rb-1.2.1&q=80&w=400"] ,
 };
 
