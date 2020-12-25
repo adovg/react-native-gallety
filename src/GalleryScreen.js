@@ -1,52 +1,60 @@
-import React, {useState, Component, useEffect} from 'react';
-import {connect} from 'react-redux';
-import { StyleSheet, Text, View, Button, FlatList, Image } from 'react-native';
-//import state from '../state';
-import {addFotoActionCreator} from './redux/gallery-reducer';
+import React from 'react';
+import { StyleSheet, View, Image, SafeAreaView, ScrollView } from 'react-native';
 
-function GalleryScreen(props) {
+function GalleryScreen() {
   let state = store.getState();
-  //console.log(state.galleryScreen);
   let stateImgUrl = state.galleryScreen.photosUrl;
-  //let someOtherUrl = 'https://oecdenvironmentfocusblog.files.wordpress.com/2020/06/wed-blog-shutterstock_1703194387_low_nwm.jpg?w=640';
-  //imgUrl.push(someOtherUrl);
-  //console.log(state.galleryScreen);
 
-  fetch('https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0').then(function(response) {
-  if(response.ok) {
-    response.json().then(function(json) {
-     let products = json;
-      initialize(products);
-    });
-  } else {
-    console.log('Network request for products.json failed with response ' + response.status + ': ' + response.statusText);
-  }
-});
+  fetch('https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0').then(function (response) {
+    if (response.ok) {
+      response.json().then(function (json) {
+        let products = json;
+        mapImageUrl(products);
+      });
+    } else {
+      alert('Network request for products.json failed with response ' + response.status + ': ' + response.statusText);
+    }
+  });
 
-function initialize(products) {
+  function mapImageUrl(products) {
 
-  //let imgUrl = [];
-    products.map( (searchRes) => {
+    products.map((searchRes) => {
       stateImgUrl.push(searchRes.urls.small);
-    //store.setState(...imgUrl, searchRes.urls.small)                            
-    //console.log(imgUrl);   
-     })
-//      state.setState({...imgUrl, })
-  console.log(state);   
+    })
   };
 
-
+  const RenderImage = () => {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        
-        
-        <Text className='myText'>Some text </Text>
-        {/* <Image source={{uri: imgUrl[3]}} style={{ width: 80, height: 80 }}/> */}
-      </View>
-    );
-  };
+      stateImgUrl.map((i) => <Image source={{ uri: i }} style={styles.imageItem} key={Math.random()} resizeMode="contain" />)
+    )
+  }
+
+  return (
+    <SafeAreaView style={styles.containerFoto}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.imageWrap}>
+          <RenderImage style={styles.imageItem} />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 
 
+export default GalleryScreen;
 
-  export default GalleryScreen;
+
+const styles = StyleSheet.create({
+  imageWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageItem: {
+    flex: 1,
+    width: '100%',
+    height: 600,
+    marginBottom: 10
+  },
+});
