@@ -1,1 +1,1 @@
-# react-native-gallety
+# react-native-gallery
